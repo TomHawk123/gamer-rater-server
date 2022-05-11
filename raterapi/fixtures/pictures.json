@@ -1,0 +1,11 @@
+[
+  {
+    "model": "raterapi.picture",
+    "pk": "1",
+    "fields": {
+      "url": "image.url",
+      "game": 1,
+      "gamer": 1
+    }
+  }
+]
