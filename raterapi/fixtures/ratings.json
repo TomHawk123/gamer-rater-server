@@ -1,0 +1,11 @@
+[
+  {
+    "model": "raterapi.rating",
+    "pk": "1",
+    "fields": {
+      "rating": 7.8,
+      "game": 1,
+      "gamer": 1
+    }
+  }
+]

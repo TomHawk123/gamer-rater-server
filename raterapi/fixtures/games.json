@@ -1,0 +1,16 @@
+[
+  {
+    "model": "raterapi.game",
+    "pk": "1",
+    "fields": {
+      "title": "COD",
+      "description": "words about a game",
+      "designer": "I made this",
+      "year_released": 2000,
+      "number_of_players": 16,
+      "play_time": 4.2,
+      "age_req": 13,
+      "gamer": 1
+    }
+  }
+]
