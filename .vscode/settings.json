@@ -6,6 +6,7 @@
     "--django-settings-module=raterproject.settings",
   ],
   "cSpell.words": [
+    "Fantastico",
     "raterapi"
   ]
 }

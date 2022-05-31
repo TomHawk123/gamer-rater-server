@@ -20,6 +20,33 @@ class GamerView(ViewSet):
         serializer = GamerSerializer(gamers, many=True)
         return Response(serializer.data)
 
+    def retrieve(self, request, pk):
+        """The retrieve method will get a single object
+        from the database based on the pk (primary key) in
+        the url. We will use the ORM to get the data, then the
+        serializer to convert the data to json. Add the
+        following code to the retrieve method, making sure
+        the code is tabbed correctly:
+        Returns:
+            Response -- JSON serialized game type
+        """
+        try:
+            gamer = Gamer.objects.get(pk=pk)
+            serializer = GamerSerializer(gamer)
+            return Response(serializer.data)
+        except Gamer.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+    def destroy(self, request, pk):
+        """Handle DELETE requests to get all game types
+        Returns:
+            Response -- 204
+        """
+        gamer = Gamer.objects.get(pk=pk)
+        gamer.delete()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
 
 class GamerSerializer(serializers.ModelSerializer):
     """JSON serializer for game types

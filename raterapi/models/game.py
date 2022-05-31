@@ -10,7 +10,7 @@ class Game(models.Model):
     play_time = models.FloatField()
     age_req = models.IntegerField()
     gamer = models.ForeignKey("Gamer", on_delete=models.CASCADE)
-    gameCategories = models.ManyToManyField(
+    categories = models.ManyToManyField(
         "Category",
         through="gameCategory",
         related_name="games"

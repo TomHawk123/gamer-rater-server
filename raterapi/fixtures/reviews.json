@@ -1,7 +1,7 @@
 [
   {
     "model": "raterapi.review",
-    "pk": "1",
+    "pk": 1,
     "fields": {
       "review": "Cool game",
       "game": 1,
