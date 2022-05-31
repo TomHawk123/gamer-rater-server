@@ -1,7 +1,7 @@
 [
   {
     "model": "raterapi.game",
-    "pk": "1",
+    "pk": 1,
     "fields": {
       "title": "COD",
       "description": "words about a game",

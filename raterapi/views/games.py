@@ -67,6 +67,9 @@ class GameView(ViewSet):
         serializer = CreateGameSerializer(game, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
+        game.categories.remove(*game.categories.all())
+        game.categories.add(*request.data['categories'])
+
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     def create(self, request):
@@ -93,10 +96,14 @@ class GameView(ViewSet):
         """
         # Any foreign keys needed must be stored in a variable
         # like this
+
         gamer = Gamer.objects.get(user=request.auth.user)
         serializer = CreateGameSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save(gamer=gamer)
+        game = Game.objects.get(pk=serializer.data['id'])
+        game.categories.add(*request.data['categories'])
+
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def destroy(self, request, pk):
@@ -123,25 +130,23 @@ class GameSerializer(serializers.ModelSerializer):
             'number_of_players',
             'play_time',
             'age_req',
-            'gamer'
+            'gamer',
+            'categories'
         )
-        depth = 2
+        # depth = 2
 
 
 class CreateGameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
-        # uses an array because information is coming from
-        # front-end
         fields = (
+            'id',
             'title',
             'description',
             'designer',
             'year_released',
             'number_of_players',
             'play_time',
-            'age_req',
-            'game_categories',
-            'joined'
+            'age_req'
         )
-        depth = 2
+        # depth = 2

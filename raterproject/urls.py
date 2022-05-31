@@ -21,6 +21,7 @@ from raterapi.views import login_user, register_user
 from raterapi.views.categories import CategoryView
 from raterapi.views.games import GameView
 from raterapi.views.gamers import GamerView
+from raterapi.views.reviews import ReviewView
 
 router = routers.DefaultRouter(trailing_slash=False)
 
@@ -28,6 +29,7 @@ router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'games', GameView, 'game')
 router.register(r'categories', CategoryView, 'category')
 router.register(r'gamers', GamerView, 'gamer')
+router.register(r'reviews', ReviewView, 'review')
 
 urlpatterns = [
     path('register', register_user),

@@ -1,7 +1,7 @@
 [
   {
     "model": "raterapi.picture",
-    "pk": "1",
+    "pk": 1,
     "fields": {
       "url": "image.url",
       "game": 1,
